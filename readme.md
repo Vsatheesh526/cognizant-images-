@@ -244,3 +244,23 @@ Just tell 👍
 
 <img width="1347" height="684" alt="image" src="https://github.com/user-attachments/assets/027cdc90-5445-4232-9f3e-3cc5ffa10d57" />
 
+
+
+<div class="welcome-container">
+
+    <div data-sly-list.item="${resource.getChild('items').children}">
+        
+        <div class="welcome-card">
+
+            <img src="${item.icon}" alt="${item.title}" />
+
+            <h3>${item.title}</h3>
+
+            <p>${item.description}</p>
+
+        </div>
+
+    </div>
+
+</div>
+
