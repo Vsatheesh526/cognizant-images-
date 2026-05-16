@@ -1,93 +1,68 @@
-/* Force the outermost containers to not interfere */
-.row-cards {
-    width: 100%;
-    overflow-x: auto;   /* allows horizontal scroll if needed */
-}
+<!-- Horizontal scroll container -->
+<div class="flex flex-nowrap overflow-x-auto gap-6 py-6 px-4 scroll-smooth" style="scroll-snap-type: x mandatory;">
+    <div data-sly-list.parent="${resource.listChildren}">
+        <div data-sly-test="${parent.name == 'items'}">
+            <div data-sly-list.item="${parent.listChildren}">
+                <!-- Each card - using your new Tailwind design -->
+                <div class="[--shadow:rgba(60,64,67,0.3)_0_1px_2px_0,rgba(60,64,67,0.15)_0_2px_6px_2px] w-80 h-auto rounded-2xl bg-white [box-shadow:var(--shadow)] flex-shrink-0 scroll-snap-align-start">
+                    <div class="flex flex-col items-center justify-between pt-9 px-6 pb-6 relative">
+                        <!-- Dynamic Icon (fallback to default image if no SVG) -->
+                        <span class="relative mx-auto -mt-16 mb-8">
+                            <img src="${item.valueMap.icon @ default='/content/dam/default-icon.png'}" 
+                                 alt="${item.valueMap.title @ default='Card'}"
+                                 class="w-16 h-16 object-contain" />
+                        </span>
 
-/* The main container that holds all cards - this makes them horizontal */
-.welcome-container {
-    display: flex !important;          /* force flexbox */
-    flex-direction: row !important;    /* force row direction */
-    flex-wrap: nowrap !important;      /* prevent wrapping to next line */
-    gap: 24px;
-    overflow-x: auto;
-    padding: 20px 16px;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    margin: 0;
-    width: 100%;
-}
+                        <!-- Dynamic Title -->
+                        <h5 class="text-sm font-semibold mb-2 text-left mr-auto text-zinc-700">
+                            ${item.valueMap.title @ default='Your privacy is important'}
+                        </h5>
 
-/* Each individual card – fixed width so they stay in one row */
-.welcome-card {
-    flex: 0 0 auto !important;        /* don't shrink or grow */
-    width: 280px;                     /* adjust to your preference */
-    background: #ffffff;
-    border-radius: 16px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    padding: 20px 16px;
-    text-align: center;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    scroll-snap-align: start;
-}
+                        <!-- Dynamic Description -->
+                        <p class="w-full mb-4 text-sm text-justify">
+                            ${item.valueMap.description @ default='We process your personal information to measure and improve our sites and services.'}
+                            <br />
+                            For more information see our
+                            <a class="mb-2 text-sm cursor-pointer font-semibold transition-colors hover:text-[#634647] underline underline-offset-2">
+                                Privacy Policy
+                            </a>
+                        </p>
 
-/* Hover effect */
-.welcome-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 16px 28px rgba(0, 0, 0, 0.15);
-}
+                        <!-- "More Options" link (static or dynamic) -->
+                        <button class="mb-2 text-sm mr-auto text-zinc-600 cursor-pointer font-semibold transition-colors hover:text-[#634647] hover:underline underline-offset-2">
+                            More Options
+                        </button>
 
-/* Image inside card */
-.welcome-card img {
-    width: 80px;
-    height: 80px;
-    object-fit: contain;
-    margin-bottom: 16px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
+                        <!-- Accept button -->
+                        <button class="absolute font-semibold right-6 bottom-6 cursor-pointer py-2 px-8 w-max break-keep text-sm rounded-lg transition-colors text-[#634647] hover:text-[#ddad81] bg-[#ddad81] hover:bg-[#634647]" type="button">
+                            Accept
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-/* Title styling */
-.welcome-card h3 {
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin: 12px 0 8px;
-    color: #1f2937;
-}
 
-/* Description styling */
-.welcome-card p {
-    font-size: 0.9rem;
-    line-height: 1.5;
-    color: #4b5563;
-    margin: 0;
-}
 
-/* Optional: custom scrollbar for better look */
-.welcome-container::-webkit-scrollbar {
-    height: 8px;
+
+
+
+
+
+/* Style horizontal scrollbar */
+.flex-nowrap {
+    scrollbar-width: thin;
 }
-.welcome-container::-webkit-scrollbar-track {
-    background: #f3f4f6;
+.flex-nowrap::-webkit-scrollbar {
+    height: 6px;
+}
+.flex-nowrap::-webkit-scrollbar-track {
+    background: #f1f1f1;
     border-radius: 10px;
 }
-.welcome-container::-webkit-scrollbar-thumb {
+.flex-nowrap::-webkit-scrollbar-thumb {
     background: #cbd5e1;
     border-radius: 10px;
-}
-.welcome-container::-webkit-scrollbar-thumb:hover {
-    background: #9ca3af;
-}
-
-/* Responsive: on very small screens, reduce card width slightly */
-@media (max-width: 640px) {
-    .welcome-card {
-        width: 240px;
-        padding: 16px 12px;
-    }
-    .welcome-container {
-        gap: 16px;
-        padding: 16px 12px;
-    }
 }
