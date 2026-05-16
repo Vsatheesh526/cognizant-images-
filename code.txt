@@ -1,29 +1,93 @@
+/* Force the outermost containers to not interfere */
+.row-cards {
+    width: 100%;
+    overflow-x: auto;   /* allows horizontal scroll if needed */
+}
 
-<div class="row-cards">
+/* The main container that holds all cards - this makes them horizontal */
+.welcome-container {
+    display: flex !important;          /* force flexbox */
+    flex-direction: row !important;    /* force row direction */
+    flex-wrap: nowrap !important;      /* prevent wrapping to next line */
+    gap: 24px;
+    overflow-x: auto;
+    padding: 20px 16px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    margin: 0;
+    width: 100%;
+}
 
-<div data-sly-list.parent="${resource.listChildren}">
-    <div data-sly-test="${parent.name == 'items'}">
+/* Each individual card – fixed width so they stay in one row */
+.welcome-card {
+    flex: 0 0 auto !important;        /* don't shrink or grow */
+    width: 280px;                     /* adjust to your preference */
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    padding: 20px 16px;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    scroll-snap-align: start;
+}
 
-        <div class="welcome-container">
+/* Hover effect */
+.welcome-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 28px rgba(0, 0, 0, 0.15);
+}
 
-            <div data-sly-list.item="${parent.listChildren}">
-                
-                <div class="welcome-card">
+/* Image inside card */
+.welcome-card img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 16px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 
-                   <img src="${item.valueMap.icon @ default='/content/dam/default-icon.png'}"
-     alt="${item.valueMap.title @ default='Card'}" />
+/* Title styling */
+.welcome-card h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 12px 0 8px;
+    color: #1f2937;
+}
 
-<h3>${item.valueMap.title @ default='Default Title'}</h3>
+/* Description styling */
+.welcome-card p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #4b5563;
+    margin: 0;
+}
 
-<p>${item.valueMap.description @ default='Default description goes here.'}</p>
+/* Optional: custom scrollbar for better look */
+.welcome-container::-webkit-scrollbar {
+    height: 8px;
+}
+.welcome-container::-webkit-scrollbar-track {
+    background: #f3f4f6;
+    border-radius: 10px;
+}
+.welcome-container::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 10px;
+}
+.welcome-container::-webkit-scrollbar-thumb:hover {
+    background: #9ca3af;
+}
 
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-</div>
-
-</div>
+/* Responsive: on very small screens, reduce card width slightly */
+@media (max-width: 640px) {
+    .welcome-card {
+        width: 240px;
+        padding: 16px 12px;
+    }
+    .welcome-container {
+        gap: 16px;
+        padding: 16px 12px;
+    }
+}
