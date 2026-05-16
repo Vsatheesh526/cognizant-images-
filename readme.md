@@ -134,3 +134,8 @@ If you prefer the cards to **wrap naturally** without horizontal scrolling (for 
 4. Kept the exact HTL expressions you used (`item.valueMap.title`) so AEM/Sling will still resolve properties correctly.
 
 This will give you modern, horizontally scrollable cards that work perfectly on mobile and desktop.
+
+
+
+<img width="1598" height="1199" alt="image" src="https://github.com/user-attachments/assets/835b59ce-2159-40a7-b531-e2ed761aef74" />
+
