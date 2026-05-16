@@ -260,10 +260,109 @@ Just tell 👍
 
                 </div>
 
+
+
+
+
+
+
+
             </div>
 
         </div>
 
     </div>
+
+
+
+
+
+
+
+    /* Container Layout */
+.welcome-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Card Style */
+.welcome-card {
+    width: 240px;
+    padding: 20px;
+    border-radius: 15px;
+    background: #ffffff;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hover Effect */
+.welcome-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Icon Style */
+.welcome-card img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+/* Icon Animation */
+.welcome-card:hover img {
+    transform: rotate(10deg) scale(1.1);
+}
+
+/* Title */
+.welcome-card h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* Description */
+.welcome-card p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* Glow Border Animation */
+.welcome-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 15px;
+    padding: 2px;
+    background: linear-gradient(45deg, #00c6ff, #0072ff, #00c6ff);
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+/* Show border on hover */
+.welcome-card:hover::before {
+    opacity: 1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .welcome-card {
+        width: 100%;
+        max-width: 300px;
+    }
+}
 
 </div>
