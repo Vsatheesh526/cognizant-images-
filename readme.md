@@ -238,3 +238,32 @@ Just tell 👍
 
 <img width="1896" height="831" alt="image" src="https://github.com/user-attachments/assets/c743f95e-69ea-4db6-b60c-9b0ba608efe6" />
 
+
+<div class="welcome-container">
+
+    <!-- First: get 'items' node -->
+    <div data-sly-list.parent="${resource.listChildren}">
+        
+        <!-- Check only items node -->
+        <div data-sly-test="${parent.name == 'items'}">
+
+            <!-- Now loop item0, item1 -->
+            <div data-sly-list.item="${parent.listChildren}">
+                
+                <div class="welcome-card">
+
+                    <img src="${item.valueMap.icon}" alt="${item.valueMap.title}" />
+
+                    <h3>${item.valueMap.title}</h3>
+
+                    <p>${item.valueMap.description}</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
