@@ -204,3 +204,23 @@ If you want next upgrade:
 * 🔥 Sling Model (interview-ready clean code)
 
 Just tell 👍
+
+
+<div class="welcome-container"
+     data-sly-test="${resource.getChild('items')}">
+
+    <div data-sly-list.item="${resource.getChild('items').children}">
+        
+        <div class="welcome-card">
+
+            <img src="${item.icon}" alt="${item.title}" />
+
+            <h3>${item.title}</h3>
+
+            <p>${item.description}</p>
+
+        </div>
+
+    </div>
+
+</div>
