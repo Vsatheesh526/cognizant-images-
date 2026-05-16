@@ -240,3 +240,7 @@ If you want next level:
 * animations
 
 Just tell 👍
+
+
+<img width="1347" height="684" alt="image" src="https://github.com/user-attachments/assets/027cdc90-5445-4232-9f3e-3cc5ffa10d57" />
+
