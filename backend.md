@@ -979,6 +979,9 @@ Resource Data → @Model → @ValueMapValue → @PostConstruct → Ready to Use
 | **Scheduler** | Run background tasks | Cleanup, reports, sync tasks |
 
 
+
+---
+```
 ✅ Real-Life Example 💡
 👉 Think like an alarm clock
 •	You set time ⏰
@@ -988,6 +991,6 @@ Resource Data → @Model → @ValueMapValue → @PostConstruct → Ready to Use
 •	Schedule time
 •	Code runs automatically
 
----
+```
 
 **Happy Coding with AEM! 🚀**
