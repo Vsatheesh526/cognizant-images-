@@ -410,11 +410,11 @@ private String componentProperty;
 )
 ```
 
--` @Model → define model 
+- `@Model` → define model 
 
--`  adaptables → source of data 
+- `adaptables` → source of data 
 
--` OPTIONAL → no error if value missing
+- `OPTIONAL` → no error if value missing
 
 
 
