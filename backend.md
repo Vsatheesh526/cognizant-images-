@@ -552,6 +552,21 @@ private String componentProperty;
 - `@Inject` = "Bring me water from anywhere"
 - `@ValueMapValue` = "Bring me water from the kitchen only"
 
+```
+@Model(adaptables = Resource.class,
+    defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL
+)
+```
+
+-` @Model → define model 
+-`  adaptables → source of data 
+-` OPTIONAL → no error if value missing
+
+
+
+
+
+
 ### Basic Sling Model Example
 
 ```java
@@ -675,6 +690,71 @@ public class SlideModel {
     }
 }
 ```
+
+
+## ✅ @SlingObject
+
+### What is @SlingObject?
+`@SlingObject` is used to inject AEM/Sling-specific objects like **request, resource, and resource resolver** into a Sling Model.
+
+👉 It gives access to **AEM internal objects**.
+
+---
+
+### ✅ What It Can Inject
+
+Using `@SlingObject`, you can get:
+
+- ✅ SlingHttpServletRequest → for request details  
+- ✅ Resource → current component data  
+- ✅ ResourceResolver → to access repository  
+
+---
+
+### ✅ Simple Understanding
+
+👉 `@SlingObject` = Access AEM objects directly inside Sling Model  
+
+---
+
+### ✅ Example
+
+```java
+@SlingObject
+private SlingHttpServletRequest request;
+
+@SlingObject
+private Resource resource;
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ---
 
