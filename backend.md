@@ -993,4 +993,84 @@ Resource Data → @Model → @ValueMapValue → @PostConstruct → Ready to Use
 
 ```
 
+
+
+
+
+
+---
+
+## ✅ What is cq:editConfig?
+
+`cq:editConfig.xml` in AEM is used to **control the behavior of a component in authoring mode**.
+
+👉 It defines how the component reacts when authors **create, edit, or delete** it in the page editor.
+
+### 🔹 Key Points
+
+- Used for **authoring configuration**, not publish
+- Defines **event listeners**:
+  - `aftercreate`
+  - `afteredit`
+- Example:
+  - `REFRESH_PAGE` → reloads page after changes
+- Controls **in-place editing**:
+  - `active=true` → enables inline editing
+  - `active=false` → disables inline editing
+
+---
+
+## ✅ Design Dialog vs Dialog
+
+### 🔹 cq:design_dialog
+
+Used for **design-level configuration**
+
+#### Purpose:
+- Used by **template authors**
+- Defines **default settings / restrictions**
+- Stored in:
+  - `/conf` (Editable Templates)
+  - `/etc/designs` (Classic UI)
+
+#### Example:
+- Allowed styles  
+- Default values  
+- Feature enable/disable  
+
+---
+
+### 🔹 cq:dialog
+
+Used for **authoring content**
+
+#### Purpose:
+- Provides **UI form for authors**
+- Used to enter:
+  - Text
+  - Images
+  - Links
+- Data stored in **JCR repository (/content)**
+
+---
+
+## ✅ How to Link CSS in HTL?
+
+### 🔹 Include Client Library
+
+```html
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"/>
+<sly data-sly-call="${clientlib.css @ categories='sample.site'}"/>
+```
+
+
+
+
+
+
+
+
+
+
+
 **Happy Coding with AEM! 🚀**
