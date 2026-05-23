@@ -978,6 +978,16 @@ Resource Data → @Model → @ValueMapValue → @PostConstruct → Ready to Use
 | **Servlet** | Handle HTTP requests | APIs, external integrations |
 | **Scheduler** | Run background tasks | Cleanup, reports, sync tasks |
 
+
+✅ Real-Life Example 💡
+👉 Think like an alarm clock
+•	You set time ⏰
+•	It runs automatically
+•	No need to press anything
+👉 Same in AEM:
+•	Schedule time
+•	Code runs automatically
+
 ---
 
 **Happy Coding with AEM! 🚀**
